@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>Test SMS post</title>
+<body>
+	<h1>Test SMS receive</h1>
+
+	<form action="sms-receive-custom.php" method="POST">
+		<table border="0">
+			<tr><td>SMS sender number</td><td><input type="text" name="sms_number" value="+441234567890"/></td></tr>
+			<tr><td>SMS Message</td><td><input type="text" name="sms_content" value="Help!" maxlength="160"/></td></tr>
+			<tr><td colspan="2">&nbsp;<br/></td></tr>
+			<tr><td colspan="2"><input type="submit" value="Send"/></td></tr>
+		</table>
+	</form>
+</html>
