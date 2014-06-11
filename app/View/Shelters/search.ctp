@@ -1,0 +1,1 @@
+<?php echo json_encode($shelters, JSON_PRETTY_PRINT);
