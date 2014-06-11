@@ -103,6 +103,21 @@ class HistoriesController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The history could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
+		
+
+		
 	}
+
+	public function addNote() {
+
+		$this->layout = 'ajax';
+		$investigation_id = $this->request->data('investigation_id');
+		$content = $this->request->data('content');
+
+		$history = $this->History->addNote($investigation_id, $content);
+
+		$this->set('history', $history);
+	}
+
+
 }

@@ -26,7 +26,8 @@ class Shelter extends AppModel {
 	);
 
 	public function search($lat, $lng) {
-		$sql = "SELECT id, name, email, phone, lat, lng, ( 3959 * acos( cos( radians($lat) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians($lng) ) + sin( radians($lat) ) * sin( radians( lat ) ) ) ) AS distance FROM shelters HAVING distance < 25 ORDER BY distance LIMIT 0 , 20";
+		//$sql = "SELECT id, name, email, phone, lat, lng, ( 3959 * acos( cos( radians($lat) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians($lng) ) + sin( radians($lat) ) * sin( radians( lat ) ) ) ) AS distance FROM shelters HAVING distance < 25 ORDER BY distance LIMIT 0 , 20";
+		$sql = "SELECT id, name, email, phone, address, capacity, free_spaces, lat, lng, ( 3959 * acos( cos( radians($lat) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians($lng) ) + sin( radians($lat) ) * sin( radians( lat ) ) ) ) AS distance FROM shelters ORDER BY distance LIMIT 10";
 		$shelters = $this->query($sql);
 
 		// reformat

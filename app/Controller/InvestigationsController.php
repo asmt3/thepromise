@@ -15,16 +15,6 @@ class InvestigationsController extends AppController {
  */
 	public $components = array('Paginator');
 
-	public $paginate = array(
-		'contain' => array('Message'),
-		'conditions' => array('Investigation.status' => array(
-			'open',
-			'followup'
-		)),
-        'order' => array(
-            'Investigation.id' => 'DESC'
-        )
-    );
 
 /**
  * index method
@@ -36,6 +26,37 @@ class InvestigationsController extends AppController {
 		$this->Paginator->settings = $this->paginate;
 		$this->set('investigations', $this->Paginator->paginate());
 	}
+
+	public function agency() {
+		$this->Paginator->settings = array(
+			'contain' => array('Message'),
+			'conditions' => array(
+				'Investigation.status' => array('open','followup'),
+				'Investigation.agency_id' => 1, //TODO
+			),
+	        'order' => array(
+	            'Investigation.id' => 'DESC'
+	        )
+	    );
+
+		$this->set('investigations', $this->Paginator->paginate());
+	}
+
+	public function shelter() {
+		$this->Paginator->settings = array(
+			'contain' => array('Message'),
+			'conditions' => array(
+				'Investigation.status' => array('referred'),
+				'Investigation.shelter_id' => 1, //TODO
+			),
+	        'order' => array(
+	            'Investigation.id' => 'DESC'
+	        )
+	    );
+
+		$this->set('investigations', $this->Paginator->paginate());
+	}
+
 
 /**
  * view method
@@ -118,6 +139,43 @@ class InvestigationsController extends AppController {
 			$this->Session->setFlash(__('The investigation could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
+	}
+
+	public function poll() {
+		$since = $this->request->data('since');
+
+		$investigations = $this->Investigation->find('all', array('conditions' => array(
+			'modified >' => $since
+		)));
+
+		$this->set(compact('investigations'));
+	}
+
+	
+	public function refer($shelter_id, $investigation_id) {
+
+		// $investigation = $this->Investigation->refer($shelter_id, $investigation_id);
+		$investigation = $this->Investigation->find('first', array(
+			'conditions' => array(
+				'Investigation.id' => $investigation_id
+			)
+		));
+
+
+		if ($this->request->is('post')) {
+
+
+
+			$investigation = $this->Investigation->refer($shelter_id, $investigation_id);
+
+			if($this->request->data('Investigation.message_shelter')) {
+				// TODO: create SMS
+			}
+
+			$this->redirect('/investigations/agency');
+		}
+
+		$this->set(compact('investigation'));
 	}
 
 	

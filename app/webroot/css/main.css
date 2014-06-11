@@ -1,3 +1,11 @@
 #map,
 .shelter-map,
 .map {width:100%; height:500px;}
+
+
+#survivor-location-map-controls {display: none;}
+
+#shelter-info-template {display: none}
+.shelter-info-template {margin:10px 0 50px;}
+
+.btn {padding:5px; border-radius: 5px; border:1px solid #000; display: block; text-decoration: none; background:lightblue; width:80%; margin:0 auto; text-align: center;}

@@ -2,30 +2,16 @@
 	<h2><?php echo __('Shelters'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('agency_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th><?php echo $this->Paginator->sort('lat'); ?></th>
-			<th><?php echo $this->Paginator->sort('lng'); ?></th>
 			<th><?php echo $this->Paginator->sort('email'); ?></th>
 			<th><?php echo $this->Paginator->sort('phone'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($shelters as $shelter): ?>
-	<tr>
-		<td><?php echo h($shelter['Shelter']['id']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($shelter['Agency']['name'], array('controller' => 'agencies', 'action' => 'view', $shelter['Agency']['id'])); ?>
-		</td>
+	<tr>	
 		<td><?php echo h($shelter['Shelter']['name']); ?>&nbsp;</td>
-		<td><?php echo h($shelter['Shelter']['lat']); ?>&nbsp;</td>
-		<td><?php echo h($shelter['Shelter']['lng']); ?>&nbsp;</td>
 		<td><?php echo h($shelter['Shelter']['email']); ?>&nbsp;</td>
 		<td><?php echo h($shelter['Shelter']['phone']); ?>&nbsp;</td>
-		<td><?php echo h($shelter['Shelter']['created']); ?>&nbsp;</td>
-		<td><?php echo h($shelter['Shelter']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $shelter['Shelter']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $shelter['Shelter']['id'])); ?>

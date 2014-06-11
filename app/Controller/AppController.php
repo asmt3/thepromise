@@ -31,4 +31,25 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+
+	public $components = array(
+    'DebugKit.Toolbar',
+    'Session',
+    'Auth' => array(
+        'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
+        'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
+        'authError' => 'You must be logged in to view this page.',
+        'loginError' => 'Invalid Username or Password entered, please try again.',
+        'authenticate' => array(
+            'Form' => array(
+                'fields' => array('username' => 'email')
+            )
+        ),
+    ));
+
+    public function beforeFilter() {
+    	$this->Auth->allow();
+    	parent::beforeFilter();
+    }
+
 }

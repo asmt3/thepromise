@@ -1,0 +1,1 @@
+<?php echo json_encode($history, JSON_PRETTY_PRINT);

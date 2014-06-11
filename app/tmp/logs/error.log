@@ -184,3 +184,157 @@ Stack Trace:
 #12 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(InvestigationsController), Object(CakeRequest))
 #13 /Users/asmt3/Sites/opensource/shelterline/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #14 {main}
+2014-06-11 17:16:40 Error: Fatal Error (4): parse error, expecting `')'' in [/Users/asmt3/Sites/opensource/shelterline/app/Model/Survivorlocation.php, line 53]
+2014-06-11 17:16:40 Error: [FatalErrorException] parse error, expecting `')''
+Request URL: /survivorlocations/record
+Stack Trace:
+#0 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'parse error, ex...', '/Users/asmt3/Si...', 53)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error, ex...', '/Users/asmt3/Si...', 53, Array)
+#2 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 4, 'parse error, ex...', '/Users/asmt3/Si...', 53, Array)
+#3 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-06-11 17:51:40 Error: Fatal Error (1): Cannot use object of type stdClass as array in [/Users/asmt3/Sites/opensource/shelterline/app/Controller/SheltersController.php, line 115]
+2014-06-11 17:51:40 Error: [FatalErrorException] Cannot use object of type stdClass as array
+Request URL: /shelters/search
+Stack Trace:
+#0 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/Users/asmt3/Si...', 115)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/Users/asmt3/Si...', 115, Array)
+#2 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/Users/asmt3/Si...', 115, Array)
+#3 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-06-11 18:49:01 Error: [MissingActionException] Action InvestigationsController::1() could not be found.
+Exception Attributes: array (
+  'controller' => 'InvestigationsController',
+  'action' => '1',
+)
+Request URL: /investigations/1
+Stack Trace:
+#0 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(InvestigationsController), Object(CakeRequest))
+#2 /Users/asmt3/Sites/opensource/shelterline/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-06-11 21:27:13 Error: Fatal Error (4): parse error in [/Users/asmt3/Sites/opensource/shelterline/app/Controller/HistoriesController.php, line 108]
+2014-06-11 21:27:13 Error: [FatalErrorException] parse error
+Request URL: /histories/addNote
+Stack Trace:
+#0 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'parse error', '/Users/asmt3/Si...', 108)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Users/asmt3/Si...', 108, Array)
+#2 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Users/asmt3/Si...', 108, Array)
+#3 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-06-11 21:27:42 Error: [MissingViewException] View file "/Users/asmt3/Sites/opensource/shelterline/app/View/Histories/add_note.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/asmt3/Sites/opensource/shelterline/app/View/Histories/add_note.ctp',
+)
+Request URL: /histories/addNote
+Stack Trace:
+#0 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(HistoriesController), Object(CakeRequest))
+#4 /Users/asmt3/Sites/opensource/shelterline/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-06-11 21:33:24 Error: Fatal Error (1): Call to undefined method UsersController::allow() in [/Users/asmt3/Sites/opensource/shelterline/app/Controller/AppController.php, line 47]
+2014-06-11 21:33:24 Error: [FatalErrorException] Call to undefined method UsersController::allow()
+Request URL: /users/add
+Stack Trace:
+#0 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/Users/asmt3/Si...', 47)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/Users/asmt3/Si...', 47, Array)
+#2 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/Users/asmt3/Si...', 47, Array)
+#3 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-06-11 21:38:37 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'User.username' in 'where clause'
+Request URL: /
+Stack Trace:
+#0 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT `User`.`...', Array)
+#2 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('SELECT `User`.`...', Array, Array)
+#3 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Model/Datasource/DboSource.php(1106): DboSource->fetchAll('SELECT `User`.`...', false)
+#4 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Model/Model.php(2905): DboSource->read(Object(User), Array)
+#5 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Model/Model.php(2877): Model->_readDataSource('first', Array)
+#6 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Controller/Component/Auth/BaseAuthenticate.php(112): Model->find('first', Array)
+#7 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Controller/Component/Auth/FormAuthenticate.php(81): BaseAuthenticate->_findUser('shelter@shelter...', '123')
+#8 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Controller/Component/AuthComponent.php(753): FormAuthenticate->authenticate(Object(CakeRequest), Object(CakeResponse))
+#9 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Controller/Component/AuthComponent.php(600): AuthComponent->identify(Object(CakeRequest), Object(CakeResponse))
+#10 /Users/asmt3/Sites/opensource/shelterline/app/Controller/UsersController.php(28): AuthComponent->login()
+#11 [internal function]: UsersController->login()
+#12 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#13 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#15 /Users/asmt3/Sites/opensource/shelterline/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-06-11 21:46:43 Error: [MissingActionException] Action InvestigationsController::agency() could not be found.
+Exception Attributes: array (
+  'controller' => 'InvestigationsController',
+  'action' => 'agency',
+)
+Request URL: /investigations/agency
+Stack Trace:
+#0 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(InvestigationsController), Object(CakeRequest))
+#2 /Users/asmt3/Sites/opensource/shelterline/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-06-11 21:51:13 Error: Fatal Error (64): Cannot redeclare InvestigationsController::agency() in [/Users/asmt3/Sites/opensource/shelterline/app/Controller/InvestigationsController.php, line 45]
+2014-06-11 21:51:13 Error: [FatalErrorException] Cannot redeclare InvestigationsController::agency()
+Request URL: /investigations/shelter
+Stack Trace:
+#0 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Cannot redeclar...', '/Users/asmt3/Si...', 45)
+#1 [internal function]: ErrorHandler::handleError(64, 'Cannot redeclar...', '/Users/asmt3/Si...', 45, Array)
+#2 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 64, 'Cannot redeclar...', '/Users/asmt3/Si...', 45, Array)
+#3 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-06-11 22:07:25 Error: Fatal Error (1): Call to a member function refer() on a non-object in [/Users/asmt3/Sites/opensource/shelterline/app/Controller/SheltersController.php, line 128]
+2014-06-11 22:07:25 Error: [FatalErrorException] Call to a member function refer() on a non-object
+Request URL: /shelters/refer/5/1
+Stack Trace:
+#0 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/Users/asmt3/Si...', 128)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/Users/asmt3/Si...', 128, Array)
+#2 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/Users/asmt3/Si...', 128, Array)
+#3 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-06-11 22:08:03 Error: Fatal Error (1): Call to a member function refer() on a non-object in [/Users/asmt3/Sites/opensource/shelterline/app/Controller/SheltersController.php, line 128]
+2014-06-11 22:08:03 Error: [FatalErrorException] Call to a member function refer() on a non-object
+Request URL: /shelters/refer/5/1
+Stack Trace:
+#0 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/Users/asmt3/Si...', 128)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/Users/asmt3/Si...', 128, Array)
+#2 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/Users/asmt3/Si...', 128, Array)
+#3 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-06-11 22:11:52 Error: Fatal Error (1): Call to a member function find() on a non-object in [/Users/asmt3/Sites/opensource/shelterline/app/Controller/SheltersController.php, line 136]
+2014-06-11 22:11:52 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /shelters/refer/5/1
+Stack Trace:
+#0 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/Users/asmt3/Si...', 136)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/Users/asmt3/Si...', 136, Array)
+#2 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/Users/asmt3/Si...', 136, Array)
+#3 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-06-11 22:12:35 Error: Fatal Error (1): Call to a member function find() on a non-object in [/Users/asmt3/Sites/opensource/shelterline/app/Controller/SheltersController.php, line 136]
+2014-06-11 22:12:35 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /shelters/refer/5/1
+Stack Trace:
+#0 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/Users/asmt3/Si...', 136)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/Users/asmt3/Si...', 136, Array)
+#2 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/Users/asmt3/Si...', 136, Array)
+#3 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-06-11 22:17:45 Error: Fatal Error (4): parse error, expecting `')'' in [/Users/asmt3/Sites/opensource/shelterline/app/View/Investigations/refer.ctp, line 19]
+2014-06-11 22:17:45 Error: [FatalErrorException] parse error, expecting `')''
+Request URL: /investigations/refer/5/1
+Stack Trace:
+#0 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'parse error, ex...', '/Users/asmt3/Si...', 19)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error, ex...', '/Users/asmt3/Si...', 19, Array)
+#2 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 4, 'parse error, ex...', '/Users/asmt3/Si...', 19, Array)
+#3 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

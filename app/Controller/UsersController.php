@@ -15,6 +15,47 @@ class UsersController extends AppController {
  */
 	public $components = array('Paginator');
 
+
+	public function login() {
+         
+        //if already logged-in, redirect
+        if($this->Session->check('Auth.User')){
+        	if ($this->Auth->user('role') == 'agency') {
+                	$redirect_url = '/investigations/agency';
+                } elseif ($this->Auth->user('role') == 'shelter') {
+                	$redirect_url = '/investigations/shelter';
+                }
+
+                
+            $this->redirect($redirect_url);
+        }
+         
+        // if we get the post information, try to authenticate
+        if ($this->request->is('post')) {
+            if ($this->Auth->login()) {
+                $this->Session->setFlash(__('Welcome, '. $this->Auth->user('name')));
+
+
+                if ($this->Auth->user('role') == 'agency') {
+                	$redirect_url = '/investigations/agency';
+                } elseif ($this->Auth->user('role') == 'shelter') {
+                	$redirect_url = '/investigations/shelter';
+                }
+
+                $this->redirect($redirect_url);
+            } else {
+                $this->Session->setFlash(__('Invalid username or password'));
+            }
+        } 
+    }
+ 
+    public function logout() {
+        $this->redirect($this->Auth->logout());
+    }
+
+
+
+
 /**
  * index method
  *

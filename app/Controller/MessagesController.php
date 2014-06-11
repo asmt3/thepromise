@@ -120,4 +120,14 @@ class MessagesController extends AppController {
 
 
 	}
+
+	public function send() {
+		$this->layout = 'ajax';
+		$type = $this->request->data('number');
+		$from = $this->request->data('content');
+
+		$ok = true;
+
+		$this->set(compact('ok'));
+	}
 }

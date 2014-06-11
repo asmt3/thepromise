@@ -57,8 +57,8 @@ class Investigation extends AppModel {
 	public function refer($shelter_id, $investigation_id) {
 		
 		$this->id = $investigation_id;
-
-		return $this->saveField('shelter_id', $shelter_id);
+		$this->saveField('shelter_id', $shelter_id);
+		return $this->saveField('status', 'referred');
 
 	}
 

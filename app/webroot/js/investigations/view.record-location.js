@@ -24,12 +24,14 @@ $(function(){
 
     $("#survivor-location-map-save").click(function(){
 
-    	$.post('/survivorlocations/add', {
-    		investigation_id: investigation_id,
-    		lat:1,
-    		lng:1,
+    	$.post('/survivorlocations/record', {
+    		investigation_id: 1, //investigation_id,
+    		lat:$("#survivor-location-map-lat").val(),
+    		lng:$("#survivor-location-map-lng").val()
     	}, function(result){
-
+            console.log(result);
+            result = $.parseJSON(result);
+            addHistory(result.History.type, result.History.content)
     	})
 
     	return false;

@@ -1,0 +1,1 @@
+<?php echo json_encode($ok, JSON_PRETTY_PRINT);

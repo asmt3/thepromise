@@ -24,4 +24,14 @@ class History extends AppModel {
 			'order' => ''
 		)
 	);
+
+	public function addNote($investigation_id, $content) {
+		$this->create();
+		return $this->save(array(
+			'type' => 'note',
+			'investigation_id' => $investigation_id,
+			'content' => $content,
+		));
+	}
+
 }

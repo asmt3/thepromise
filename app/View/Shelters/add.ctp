@@ -8,9 +8,12 @@
 		echo $this->Form->input('agency_id');
 		echo $this->Form->input('name', array('type' => 'text'));
 		echo $this->Form->input('email');
+		echo $this->Form->input('address');
 		echo $this->Form->input('phone');
-		echo $this->Form->input('lat', array('type1' => 'hidden'));
-		echo $this->Form->input('lng', array('type1' => 'hidden'));
+		echo $this->Form->input('free_spaces');
+		echo $this->Form->input('capacity');
+		echo $this->Form->input('lat', array('type' => 'hidden'));
+		echo $this->Form->input('lng', array('type' => 'hidden'));
 	?>
 	</fieldset>
 	<div id="map">

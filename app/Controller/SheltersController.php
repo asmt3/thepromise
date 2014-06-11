@@ -106,20 +106,28 @@ class SheltersController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 
-	public function search($lat, $lng) {
+	public function search() {
+
 
 		$this->layout = 'ajax';
+
+		$response = json_decode(file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?address=' . $this->request->data('address')));
+
+		$lat = $response->results[0]->geometry->location->lat;
+		$lng = $response->results[0]->geometry->location->lng;
+		
 
 		$shelters = $this->Shelter->search($lat, $lng);
 
 		$this->set(compact('shelters'));
 	}
 
-	public function refer($shelter_id) {
-		$investigation_id = $this->request->data('investigation_id');
+	// public function refer($shelter_id) {
 
-		debug($this->Investigation->refer($shelter_id, $investigation_id));
+	// 	$investigation_id = $this->request->data('investigation_id');
+	// 	$investigation = $this->Investigation->refer($shelter_id, $investigation_id);
 
-		die();
-	}
+	// 	$this->set(compact('investigation'));
+	// }
+
 }

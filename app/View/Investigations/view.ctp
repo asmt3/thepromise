@@ -1,7 +1,13 @@
+<?php $this->Html->script('investigations/view', array('inline' => false));?>
 <?php $this->Html->script('investigations/view.shelter-search', array('inline' => false));?>
 <?php $this->Html->script('investigations/view.record-location', array('inline' => false));?>
+<?php $this->Html->script('investigations/view.addNote', array('inline' => false));?>
+
+<script type="text/javascript">
+var investigation_id = <?php echo $investigation['Investigation']['id']; ?>;
+</script>
 <div class="investigations view">
-<h2><?php echo __('Investigation'); ?></h2>
+<h2><?php echo __('Case'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -42,34 +48,30 @@
 		</dd>
 	</dl>
 
-	<div class="tabs">
+	<div class="tabs" id="survivor-process">
 	  <ul>
+	  	<li><a href="#tabs-1">Find shelter</a></li>
 	  	<li><a href="#tabs-0">Record Location</a></li>
-	    <li><a href="#tabs-1">Find shelter</a></li>
-	    <li><a href="#tabs-2">Refer to shelter</a></li>
 	  </ul>
 
 	  <div id="tabs-0">
 		<div class="map" id="survivor-location-map"></div>
-		<input id="survivor-location-map-lat">
-		<input id="survivor-location-map-lng">
+		<input id="survivor-location-map-lat" type="hidden">
+		<input id="survivor-location-map-lng" type="hidden">
 	  	<div id="survivor-location-map-controls">
-	  		<input id="suvivor-location-map-save" type="button" value="Save">
-			<input id="suvivor-location-map-clear" type="button" value="Clear">
+	  		<input id="survivor-location-map-save" type="button" value="Save">
+			<input id="survivor-location-map-clear" type="button" value="Clear">
 	  	</div>
 	  </div>
 
 
 	  <div id="tabs-1">
-	    <input id="query-search-shelters" value="">
+	    <input id="query-search-shelters" value="بانياس" placeholder="Enter an address">
 	    <input type="button" id="btn-search-shelters" value="Search for shelters">
 	  	<div class="shelter-map" id="shelter-map"></div>
 
 	  </div>
 	  
-	  <div id="tabs-2">
-	    <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
-	  </div>
 	</div>
 
 
@@ -83,8 +85,8 @@
 	    <li><a href="#tabs-1">Send text to survivor</a></li>
 	  </ul>
 	  <div id="tabs-0">
-	    <textarea id="history"></textarea>
-		<?php echo $this->Html->link(__('Save note'), array('controller' => 'histories', 'action' => 'view', 1)); ?>
+	    <textarea id="note-content"></textarea>
+	    <input type="button" id="btn-add-note" value="Add note">
 
 	  </div>
 	  <div id="tabs-1">
@@ -98,21 +100,17 @@
 
 
 		<?php if (!empty($investigation['History'])): ?>
-		<table cellpadding = "0" cellspacing = "0">
+		<table cellpadding = "0" cellspacing = "0" class="history">
 		<tr>
+			<th width="10%"><?php echo __('Type'); ?></th>
 			<th><?php echo __('Note'); ?></th>
-			<th><?php echo __('Created'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th width="30%"><?php echo __('Created'); ?></th>
 		</tr>
 		<?php foreach ($investigation['History'] as $history): ?>
 			<tr>
+				<td><?php echo $history['type']; ?></td>
 				<td><?php echo $history['content']; ?></td>
-				<td><?php echo $history['created']; ?></td>
-				<td class="actions">
-					<?php echo $this->Html->link(__('View'), array('controller' => 'histories', 'action' => 'view', $history['id'])); ?>
-					<?php echo $this->Html->link(__('Edit'), array('controller' => 'histories', 'action' => 'edit', $history['id'])); ?>
-					<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'histories', 'action' => 'delete', $history['id']), array(), __('Are you sure you want to delete # %s?', $history['id'])); ?>
-				</td>
+				<td><?php echo $this->Time->nice($history['created']); ?></td>
 			</tr>
 		<?php endforeach; ?>
 		</table>
@@ -129,7 +127,63 @@
 
 </div>
 <div class="actions">
-			<ul>
-				<li><?php echo $this->Html->link(__('Close Case'), array('controller' => 'investitgations', 'action' => 'close')); ?> </li>
-			</ul>
-		</div>
+	<ul>
+		<li><?php echo $this->Html->link(__('Close Case'), array('controller' => 'investitgations', 'action' => 'close')); ?> </li>
+	</ul>
+</div>
+
+
+<div id="shelter-info-template">
+	<div class="shelter-info-template">
+		<table>
+			<tr class="name">
+				<th>
+					Name
+				</th>
+				<td>
+					
+				</td>
+			</tr>
+
+
+			<tr class="capacity">
+				<th>
+					Capacity
+				</th>
+				<td>
+					X/Y
+				</td>
+			</tr>
+
+			<tr class="address">
+				<th>
+					Address
+				</th>
+				<td>
+					
+				</td>
+			</tr>
+
+			<tr class="email">
+				<th>
+					Email
+				</th>
+				<td>
+					<a href="#"></a>
+				</td>
+			</tr>
+
+			<tr class="phone">
+				<th>
+					Phone
+				</th>
+				<td>
+					<a href="#"></a>
+				</td>
+			</tr>
+
+		</table>
+		
+		<a href="#" class="btn">Refer</a>
+	</div>
+</div>
