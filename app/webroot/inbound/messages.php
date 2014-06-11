@@ -1,6 +1,43 @@
 <?php
+function saveMessage($caller_number, $caller_message, $message_type = "sms") {
 
-function saveMessage($caller_number, $caller_message) {
+	//where are we posting to?
+	$url = 'http://localhost/messages/received';
+
+	//what post fields?
+	$fields = array(
+	   'from'=>$caller_number,
+	   'content'=>$caller_message,
+	   'type'=>$message_type
+	);
+
+	//build the urlencoded data
+	$postvars='';
+	$sep='';
+	foreach($fields as $key=>$value) 
+	{ 
+	   $postvars.= $sep.urlencode($key).'='.urlencode($value); 
+	   $sep='&'; 
+	}
+
+	//open connection
+	$ch = curl_init();
+
+	//set the url, number of POST vars, POST data
+	curl_setopt($ch,CURLOPT_URL,$url);
+	curl_setopt($ch,CURLOPT_POST,count($fields));
+	curl_setopt($ch,CURLOPT_POSTFIELDS,$postvars);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+	//execute post
+	$result = curl_exec($ch);
+
+	//close connection
+	curl_close($ch);
+}
+
+//OBSOLETE!
+function saveMessageDirect($caller_number, $caller_message) {
 
 	// Create connection
 	//TODO Put these details somewhere common!

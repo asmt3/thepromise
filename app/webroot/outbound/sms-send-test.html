@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Test SMS outbound send</title>
+<body>
+	<h1>Test SMS send</h1>
+
+	<form action="https://AC020483e97e28907308082f3f01462f8c:3550d43b39505fdf565bf039cd2a1643@api.twilio.com/2010-04-01/Accounts/AC020483e97e28907308082f3f01462f8c/Messages" method="POST">
+	<input type="hidden" name="From" value="+441290366056"/>
+		<table border="0">
+			<tr><td>SMS receipient's number</td><td><input type="text" name="To" value=""/></td></tr>
+			<tr><td>SMS Message</td><td><input type="text" name="Body" value="" maxlength="160"/></td></tr>
+			<tr><td colspan="2">&nbsp;<br/></td></tr>
+			<tr><td colspan="2"><input type="submit" value="Send"/></td></tr>
+		</table>
+	</form>
+</html>

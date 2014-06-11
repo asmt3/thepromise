@@ -8,7 +8,7 @@ $caller_number =  $_REQUEST['From'];
 $message_url = $_REQUEST['RecordingUrl'];
 
 $message = "Voice call - " . $message_url;
-saveMessage($caller_number, $message);
+saveMessage($caller_number, $message, "call");
 
 ?>
 <Response>
