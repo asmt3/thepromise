@@ -166,3 +166,21 @@ Request URL: /investitgations/close
 Stack Trace:
 #0 /Users/asmt3/Sites/opensource/shelterline/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2014-06-11 15:09:36 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Shelter.investigation_id' in 'field list'
+Request URL: /investigations/view/1
+Stack Trace:
+#0 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT `Shelter...', Array)
+#2 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('SELECT `Shelter...', Array, Array)
+#3 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Model/Datasource/DboSource.php(1421): DboSource->fetchAll('SELECT `Shelter...', false)
+#4 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Model/Datasource/DboSource.php(1259): DboSource->_fetchHasMany(Object(Investigation), 'SELECT `Shelter...', Array)
+#5 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Model/Datasource/DboSource.php(1142): DboSource->queryAssociation(Object(Investigation), Object(Shelter), 'hasMany', 'Shelter', Array, Array, true, Array, 0, Array)
+#6 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Model/Model.php(2905): DboSource->read(Object(Investigation), Array)
+#7 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Model/Model.php(2877): Model->_readDataSource('first', Array)
+#8 /Users/asmt3/Sites/opensource/shelterline/app/Controller/InvestigationsController.php(52): Model->find('first', Array)
+#9 [internal function]: InvestigationsController->view('1')
+#10 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(InvestigationsController), Array)
+#11 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#12 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(InvestigationsController), Object(CakeRequest))
+#13 /Users/asmt3/Sites/opensource/shelterline/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}

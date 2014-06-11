@@ -105,4 +105,19 @@ class MessagesController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+
+	public function received() {
+		
+		$this->layout = 'ajax';
+		$type = $this->request->data('type');
+		$from = $this->request->data('from');
+		$content = $this->request->data('content');
+
+		$message = $this->Message->import($type, $from, $content);
+
+		$this->set('message', $message);
+
+
+	}
 }

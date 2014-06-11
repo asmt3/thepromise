@@ -114,4 +114,12 @@ class SheltersController extends AppController {
 
 		$this->set(compact('shelters'));
 	}
+
+	public function refer($shelter_id) {
+		$investigation_id = $this->request->data('investigation_id');
+
+		debug($this->Investigation->refer($shelter_id, $investigation_id));
+
+		die();
+	}
 }

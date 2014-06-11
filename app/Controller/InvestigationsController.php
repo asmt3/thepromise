@@ -50,6 +50,8 @@ class InvestigationsController extends AppController {
 		}
 		$options = array('conditions' => array('Investigation.' . $this->Investigation->primaryKey => $id));
 		$this->set('investigation', $this->Investigation->find('first', $options));
+
+		$this->Investigation->Shelter->find('list');
 	}
 
 /**
@@ -117,4 +119,6 @@ class InvestigationsController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+	
 }

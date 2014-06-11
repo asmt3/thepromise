@@ -21,9 +21,10 @@ class Investigation extends AppModel {
 		'Agency' => array(
 			'className' => 'Agency',
 			'foreignKey' => 'agency_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+		),
+		'Shelter' => array(
+			'className' => 'Shelter',
+			'foreignKey' => 'shelter_id',
 		)
 	);
 
@@ -52,5 +53,13 @@ class Investigation extends AppModel {
 			'order' => array('Survivorlocation.created DESC'),
 		)
 	);
+
+	public function refer($shelter_id, $investigation_id) {
+		
+		$this->id = $investigation_id;
+
+		return $this->saveField('shelter_id', $shelter_id);
+
+	}
 
 }
