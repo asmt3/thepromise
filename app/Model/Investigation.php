@@ -65,7 +65,12 @@ class Investigation extends AppModel {
 	public function getMaxId() {
 		$result = $this->find('first', array('fields' => 'MAX(Investigation.id) as max_id'));
 
-		return $result[0]['max_id'];
+		if (count($result)) {
+			return $result[0]['max_id'];	
+		} else {
+			return 0;
+		}
+		
 	
 	}
 
