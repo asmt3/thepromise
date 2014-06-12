@@ -7,7 +7,7 @@ $(function(){
 
 
 function addHistory(type, content) {
-	$tr = $('<tr><td>' + type + '</td><td>' + content + '</td><td>Just now</td></tr>');
+	$tr = $('<tr class="' + type + '"><td class="logo"><span></span></td><td>' + content + '</td><td>Just now</td></tr>');
 
 	$('.history').prepend($tr);
 

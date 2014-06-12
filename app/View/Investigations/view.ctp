@@ -129,10 +129,9 @@ var investigation_id = <?php echo $investigation['Investigation']['id']; ?>;
 		
 		<?php foreach ($investigation['History'] as $history): ?>
 			<tr class="<?php echo $history['type']; ?>">
-				<td>
+				<td class="logo">
 					<span></span>
 				</td>
-				<td><?php echo $history['type']; ?></td>
 				<td><?php echo $history['content']; ?></td>
 				<td><?php echo $this->Time->nice($history['created']); ?></td>
 			</tr>

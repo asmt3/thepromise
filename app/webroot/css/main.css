@@ -78,6 +78,12 @@ table.history tr.smsout td.logo span{
 	background-image: url(/img/SMSout.png)
 }
 
+table.history tr.survivorlocation td.logo span{
+	background-image: url(/img/location.png)
+}
+
+
+
 
 .record-location-info {
 	padding:20px;
