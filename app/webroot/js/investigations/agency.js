@@ -2,7 +2,7 @@ $(function(){
 
 
 
-	setInterval(poll, 1000);
+	poll();
 })
 
 
@@ -40,6 +40,9 @@ function poll() {
 	
 
 	max_id = results.max_id;
+
+
+	setInterval(poll, 1000);
 
 
 	});
