@@ -12,7 +12,7 @@ function doShelterSearch(q) {
 
 		shelter_map_infowindows = [];
 
-
+		console.log(q);
 		$.post('/shelters/search', {
 			address:q
 		}, function(result){

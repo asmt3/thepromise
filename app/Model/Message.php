@@ -31,11 +31,19 @@ class Message extends AppModel {
 			$investigation_id = $previousMessage['Message']['investigation_id'];
 			$agency_id = $previousMessage['Message']['agency_id'];
 		} else {
+
+
 			// create an investigation
-			$this->Investigation->create();
-			$this->Investigation->save();
-			$investigation_id = $this->Investigation->id;
+
 			$agency_id = 1;
+
+
+			$this->Investigation->create();
+			$this->Investigation->save(array(
+				'agency_id' => $agency_id
+			));
+			$investigation_id = $this->Investigation->id;
+			
 		}
 
 		$this->create();
