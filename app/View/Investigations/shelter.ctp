@@ -11,7 +11,7 @@
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($investigations as $investigation): ?>
-	<tr>
+	<tr class="<?php echo $investigation['Investigation']['status'];?>">
 		<td><?php echo h($investigation['Investigation']['id']); ?>&nbsp;</td>
 		<td><?php echo h($investigation['Message'][0]['from']); ?>&nbsp;</td>
 		<td><?php echo h($investigation['Investigation']['name']); ?>&nbsp;</td>

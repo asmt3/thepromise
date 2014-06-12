@@ -31,10 +31,10 @@ class InvestigationsController extends AppController {
 		$this->Paginator->settings = array(
 			'contain' => array('Message'),
 			'conditions' => array(
-				'Investigation.status' => array('open','followup'),
 				'Investigation.agency_id' => 1, //TODO
 			),
 	        'order' => array(
+	        	"FIELD(Investigation.status, 'open','followup', 'referred')",
 	            'Investigation.id' => 'DESC'
 	        )
 	    );
@@ -165,17 +165,43 @@ class InvestigationsController extends AppController {
 		if ($this->request->is('post')) {
 
 
+			$note = $this->request->data('Investigation.note');
 
 			$investigation = $this->Investigation->refer($shelter_id, $investigation_id);
 
+			$this->loadModel('Shelter');
+			$shelter = $this->Shelter->read(null, $shelter_id);
+
 			if($this->request->data('Investigation.message_shelter')) {
-				// TODO: create SMS
+				SendSMS::go($shelter['Shelter']['phone'], $note);
 			}
+
+			// create history item
+			$this->loadModel('History');
+			$this->History->markAsReferred($investigation_id);
 
 			$this->redirect('/investigations/agency');
 		}
 
 		$this->set(compact('investigation'));
+	}
+
+	public function send_text($investigation_id) {
+
+		$this->layout = 'ajax';
+
+		$number = $this->request->data('number');
+		$content = $this->request->data('content');
+
+		SendSMS::go($number, $content);
+
+		$this->loadModel('History');
+		$this->History->recordOutboundText($investigation_id, $number, $content);
+
+		$ok = true;
+
+		$this->set(compact('ok'));
+
 	}
 
 	

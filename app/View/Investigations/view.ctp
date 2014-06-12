@@ -1,4 +1,5 @@
 <?php $this->Html->script('investigations/view', array('inline' => false));?>
+<?php $this->Html->script('investigations/view.text-survivor', array('inline' => false));?>
 <?php $this->Html->script('investigations/view.shelter-search', array('inline' => false));?>
 <?php $this->Html->script('investigations/view.record-location', array('inline' => false));?>
 <?php $this->Html->script('investigations/view.addNote', array('inline' => false));?>
@@ -90,8 +91,11 @@ var investigation_id = <?php echo $investigation['Investigation']['id']; ?>;
 
 	  </div>
 	  <div id="tabs-1">
-		<textarea id="text"></textarea>
-		<?php echo $this->Html->link(__('Save note'), array('controller' => 'histories', 'action' => 'view', 1)); ?>
+	  	<label>Destination Number</label>
+		<input id="text-number" value="<?php echo $investigation['Message'][0]['from']?>" placeholder="Destination Number">
+		<label>Your Message</label>
+		<textarea id="text-content"></textarea>
+	    <input type="button" id="btn-text-survivor" value="Add note">
 	  </div>
 	  
 	</div>

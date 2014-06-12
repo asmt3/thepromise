@@ -34,4 +34,27 @@ class History extends AppModel {
 		));
 	}
 
+	public function markAsReferred($investigation_id) {
+
+		$content = 'Referred on ' . date("'l M j, y \a\t g:iA'");
+		
+		$this->create();
+		return $this->save(array(
+			'type' => 'referral',
+			'investigation_id' => $investigation_id,
+			'content' => $content,
+		));
+	}
+
+	public function recordOutboundText($investigation_id, $number, $content) {
+		$content = 'Sent to ' . $number . ': ' . $content;
+		
+		$this->create();
+		return $this->save(array(
+			'type' => 'referral',
+			'investigation_id' => $investigation_id,
+			'content' => $content,
+		));
+	}
+
 }
