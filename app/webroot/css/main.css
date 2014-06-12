@@ -55,6 +55,29 @@ table.history {
 	background:#eee;
 }
 
+table.history td.logo span {
+	display: block;
+	width:40px;
+	height:40px;
+}
+
+table.history tr.note td.logo span{
+	background-image: url(/img/notes.png)
+}
+
+table.history tr.referral td.logo span{
+	background-image: url(/img/refer.png)
+}
+
+table.history tr.sms td.logo span{
+	background-image: url(/img/SMSin.png)
+}
+
+
+table.history tr.smsout td.logo span{
+	background-image: url(/img/SMSout.png)
+}
+
 
 .record-location-info {
 	padding:20px;

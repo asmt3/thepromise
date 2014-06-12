@@ -51,7 +51,7 @@ class History extends AppModel {
 		
 		$this->create();
 		return $this->save(array(
-			'type' => 'referral',
+			'type' => 'smsout',
 			'investigation_id' => $investigation_id,
 			'content' => $content,
 		));

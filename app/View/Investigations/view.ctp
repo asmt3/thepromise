@@ -128,7 +128,10 @@ var investigation_id = <?php echo $investigation['Investigation']['id']; ?>;
 		<table cellpadding = "0" cellspacing = "0" class="history">
 		
 		<?php foreach ($investigation['History'] as $history): ?>
-			<tr>
+			<tr class="<?php echo $history['type']; ?>">
+				<td>
+					<span></span>
+				</td>
 				<td><?php echo $history['type']; ?></td>
 				<td><?php echo $history['content']; ?></td>
 				<td><?php echo $this->Time->nice($history['created']); ?></td>
