@@ -66,7 +66,7 @@ class Investigation extends AppModel {
 		$result = $this->find('first', array('fields' => 'MAX(Investigation.id) as max_id'));
 
 		if (count($result)) {
-			return $result[0]['max_id'];	
+			return (int)$result[0]['max_id'];	
 		} else {
 			return 0;
 		}
