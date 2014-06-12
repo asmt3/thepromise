@@ -36,13 +36,13 @@ function poll() {
 		$('table tr:first').after($tr);
 
 		$tr.effect('highlight', {color:'yellow'});
-		})
+	})
 	
 
-	max_id = results.max_id;
+		max_id = results.max_id;
 
 
-	setInterval(poll, 1000);
+		setTimeout(poll, 1000);
 
 
 	});
