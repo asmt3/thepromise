@@ -19,9 +19,6 @@ class Message extends AppModel {
 		'Investigation' => array(
 			'className' => 'Investigation',
 			'foreignKey' => 'investigation_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
 		)
 	);
 
@@ -32,11 +29,13 @@ class Message extends AppModel {
 
 		if ($previousMessage) {
 			$investigation_id = $previousMessage['Message']['investigation_id'];
+			$agency_id = $previousMessage['Message']['agency_id'];
 		} else {
 			// create an investigation
 			$this->Investigation->create();
 			$this->Investigation->save();
 			$investigation_id = $this->Investigation->id;
+			$agency_id = 1;
 		}
 
 		$this->create();
@@ -44,7 +43,8 @@ class Message extends AppModel {
 			'type' => $type,
 			'from' => $from,
 			'content' => $content,
-			'investigation_id' => $investigation_id
+			'investigation_id' => $investigation_id,
+			'agency_id' => $agency_id,
 		));
 	}
 }

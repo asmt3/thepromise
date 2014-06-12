@@ -1,4 +1,4 @@
 <?php echo json_encode(array(
-	'serverTime' => date('Y-m-d H:i:s'),
+	'max_id' => $max_id,
 	'investigations' => $investigations
 ), JSON_PRETTY_PRINT);

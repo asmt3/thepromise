@@ -7,19 +7,41 @@
 <script type="text/javascript">
 var investigation_id = <?php echo $investigation['Investigation']['id']; ?>;
 </script>
+
+
 <div class="investigations view">
-<h2><?php echo __('Case'); ?></h2>
+<h2>Case #<?php echo h($investigation['Investigation']['id']); ?></h2>
+
+<div id="investigation-view-col-1">
+
+	<div class="investigations form">
+
+<?php echo $this->Form->create('Investigation', array('action' => '/edit/' . $investigation['Investigation']['id'])); ?>
+	<fieldset>
+		
+	<?php
+		echo $this->Form->input('id', array('type' => 'hidden', 'value' => $investigation['Investigation']['id']));
+		echo $this->Form->input('name', array('type' => 'text', 'value' => $investigation['Investigation']['name']));
+
+		echo $this->Form->input('phone', array('type' => 'text', 'value' => $investigation['Investigation']['phone']));
+		echo $this->Form->end(__('Update'));
+	?>
+	</fieldset>
+</div>
+
+<!-- 
+
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($investigation['Investigation']['id']); ?>
 			&nbsp;
-		</dd><!-- 
+		</dd>
 		<dt><?php echo __('Agency'); ?></dt>
 		<dd>
 			<?php echo h($investigation['Agency']['name']); ?>
 			&nbsp;
-		</dd> -->
+		</dd>
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
 			<?php echo h($investigation['Investigation']['name']); ?>
@@ -42,17 +64,12 @@ var investigation_id = <?php echo $investigation['Investigation']['id']; ?>;
 			<?php echo h($investigation['Investigation']['status']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo h($investigation['Investigation']['created']); ?>
-			&nbsp;
-		</dd>
-	</dl>
+	</dl> -->
 
 	<div class="tabs" id="survivor-process">
 	  <ul>
-	  	<li><a href="#tabs-1">Find shelter</a></li>
 	  	<li><a href="#tabs-0">Record Location</a></li>
+	  	<li><a href="#tabs-1">Find shelter</a></li>
 	  </ul>
 
 	  <div id="tabs-0">
@@ -74,6 +91,10 @@ var investigation_id = <?php echo $investigation['Investigation']['id']; ?>;
 	  </div>
 	  
 	</div>
+	
+</div>
+
+<div id="investigation-view-col-2">
 
 
 	<div class="related">
@@ -87,7 +108,7 @@ var investigation_id = <?php echo $investigation['Investigation']['id']; ?>;
 	  </ul>
 	  <div id="tabs-0">
 	    <textarea id="note-content"></textarea>
-	    <input type="button" id="btn-add-note" value="Add note">
+	    <input type="button" class="btn" id="btn-add-note" value="Add note">
 
 	  </div>
 	  <div id="tabs-1">
@@ -95,7 +116,7 @@ var investigation_id = <?php echo $investigation['Investigation']['id']; ?>;
 		<input id="text-number" value="<?php echo $investigation['Message'][0]['from']?>" placeholder="Destination Number">
 		<label>Your Message</label>
 		<textarea id="text-content"></textarea>
-	    <input type="button" id="btn-text-survivor" value="Add note">
+	    <input type="button" class="btn" id="btn-text-survivor" value="Send message">
 	  </div>
 	  
 	</div>
@@ -103,13 +124,9 @@ var investigation_id = <?php echo $investigation['Investigation']['id']; ?>;
 		
 
 
-		<?php if (!empty($investigation['History'])): ?>
+		
 		<table cellpadding = "0" cellspacing = "0" class="history">
-		<tr>
-			<th width="10%"><?php echo __('Type'); ?></th>
-			<th><?php echo __('Note'); ?></th>
-			<th width="30%"><?php echo __('Created'); ?></th>
-		</tr>
+		
 		<?php foreach ($investigation['History'] as $history): ?>
 			<tr>
 				<td><?php echo $history['type']; ?></td>
@@ -118,22 +135,14 @@ var investigation_id = <?php echo $investigation['Investigation']['id']; ?>;
 			</tr>
 		<?php endforeach; ?>
 		</table>
-	<?php endif; ?>
+	
 
-		<div class="actions">
-			<ul>
-				<li><?php echo $this->Html->link(__('New History'), array('controller' => 'histories', 'action' => 'add')); ?> </li>
-			</ul>
-		</div>
 	</div>
 	
 
 
 </div>
-<div class="actions">
-	<ul>
-		<li><?php echo $this->Html->link(__('Close Case'), array('controller' => 'investitgations', 'action' => 'close')); ?> </li>
-	</ul>
+
 </div>
 
 

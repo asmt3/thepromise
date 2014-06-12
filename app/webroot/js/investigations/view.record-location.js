@@ -1,5 +1,6 @@
 var survivorLocationMap;
 var survivorLocationMarker = false;
+var infowindow = false;
 
 $(function(){
 
@@ -24,15 +25,7 @@ $(function(){
 
     $("#survivor-location-map-save").click(function(){
 
-    	$.post('/survivorlocations/record', {
-    		investigation_id: 1, //investigation_id,
-    		lat:$("#survivor-location-map-lat").val(),
-    		lng:$("#survivor-location-map-lng").val()
-    	}, function(result){
-            console.log(result);
-            result = $.parseJSON(result);
-            addHistory(result.History.type, result.History.content)
-    	})
+    	
 
     	return false;
     });
@@ -62,6 +55,20 @@ function placeSurvivorMarker(location) {
         	survivorLocationMarker.setPosition(location);
         }
 
+
+        var content = '<div class="record-location-info"><a href="javascript:recordLocation()" class="btn">Record Location</a></div>';
+
+if (infowindow) infowindow.close();
+
+        infowindow = new google.maps.InfoWindow({
+              content: content
+          });
+
+        infowindow.open(survivorLocationMap, survivorLocationMarker);
+
+
+
+
         // save the lat lng
         $("#survivor-location-map-lat").val(location.lat());
         $("#survivor-location-map-lng").val(location.lng());
@@ -69,5 +76,34 @@ function placeSurvivorMarker(location) {
         // allow saving
         $("#survivor-location-map-controls").show();
         
+
+    }
+
+
+    function recordLocation() {
+
+
+
+        // $.post('/survivorlocations/record', {
+        //     investigation_id: 1, //investigation_id,
+        //     lat:$("#survivor-location-map-lat").val(),
+        //     lng:$("#survivor-location-map-lng").val()
+        // }, function(result){
+        //     console.log(result);
+        //     result = $.parseJSON(result);
+        //     addHistory(result.History.type, result.History.content)
+        // })
+
+        $.post('/survivorlocations/record', {
+            investigation_id: 1, //investigation_id,
+            lat:$("#survivor-location-map-lat").val(),
+            lng:$("#survivor-location-map-lng").val()
+        }, function(result){
+            result = $.parseJSON(result);
+            addHistory(result.History.type, result.History.content)
+        })
+
+        return false;
+
 
     }

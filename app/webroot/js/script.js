@@ -1,6 +1,5 @@
 $(function(){
 
-
 	$(".tabs").tabs();
 
 })

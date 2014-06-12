@@ -1,3 +1,7 @@
+<script type="text/javascript">
+var max_id = <?php echo $max_id;?>;
+</script>
+<?php echo $this->Html->script('investigations/agency', array('inline' => false)); ?>
 <div class="investigations index">
 	<h2><?php echo __('Cases'); ?></h2>
 	<table cellpadding="0" cellspacing="0">

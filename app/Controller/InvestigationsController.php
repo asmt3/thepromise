@@ -39,6 +39,9 @@ class InvestigationsController extends AppController {
 	        )
 	    );
 
+	    $max_id = $this->Investigation->getMaxId();
+	    $this->set('max_id', $max_id);
+
 		$this->set('investigations', $this->Paginator->paginate());
 	}
 
@@ -55,6 +58,9 @@ class InvestigationsController extends AppController {
 	    );
 
 		$this->set('investigations', $this->Paginator->paginate());
+
+		$max_id = $this->Investigation->getMaxId();
+	    $this->set('max_id', $max_id);
 	}
 
 
@@ -108,7 +114,7 @@ class InvestigationsController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Investigation->save($this->request->data)) {
 				$this->Session->setFlash(__('The investigation has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect('/investigations/view/' . $id);
 			} else {
 				$this->Session->setFlash(__('The investigation could not be saved. Please, try again.'));
 			}
@@ -141,14 +147,17 @@ class InvestigationsController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 
-	public function poll() {
-		$since = $this->request->data('since');
+	public function poll($since_id) {
+
+		$this->layout = 'ajax';
 
 		$investigations = $this->Investigation->find('all', array('conditions' => array(
-			'modified >' => $since
+			'Investigation.id >' => $since_id
 		)));
 
-		$this->set(compact('investigations'));
+		$max_id = $this->Investigation->getMaxId();
+
+		$this->set(compact('investigations', 'max_id'));
 	}
 
 	
