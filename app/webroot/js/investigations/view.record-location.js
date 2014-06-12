@@ -23,19 +23,19 @@ $(function(){
 
     });
 
-    $("#survivor-location-map-save").click(function(){
+    // $("#survivor-location-map-save").click(function(){
 
     	
 
-    	return false;
-    });
+    // 	return false;
+    // });
 
-    $("#survivor-location-map-clear").click(function(){
+    // $("#survivor-location-map-clear").click(function(){
 
-    	$("#survivor-location-map-controls").hide();
+    // 	$("#survivor-location-map-controls").hide();
 
-    	return false;
-    });
+    // 	return false;
+    // });
 
 
 });
@@ -102,6 +102,13 @@ if (infowindow) infowindow.close();
             result = $.parseJSON(result);
             addHistory(result.History.type, result.History.content)
         })
+
+        // auto search
+        $( ".tabs" ).tabs({ active: 1 });
+
+        initShelterSearchMap();
+
+        doShelterSearch($("#survivor-location-map-lat").val() + ',' + $("#survivor-location-map-lng").val());
 
         return false;
 

@@ -76,10 +76,10 @@ var investigation_id = <?php echo $investigation['Investigation']['id']; ?>;
 		<div class="map" id="survivor-location-map"></div>
 		<input id="survivor-location-map-lat" type="hidden">
 		<input id="survivor-location-map-lng" type="hidden">
-	  	<div id="survivor-location-map-controls">
+	  	<!-- <div id="survivor-location-map-controls">
 	  		<input id="survivor-location-map-save" type="button" value="Save">
 			<input id="survivor-location-map-clear" type="button" value="Clear">
-	  	</div>
+	  	</div> -->
 	  </div>
 
 

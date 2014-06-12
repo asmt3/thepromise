@@ -3,23 +3,7 @@ var shelter_map_markers = [];
 var shelter_map_infowindows = [];
 
 
-
-
-
-$(function(){
-
-	var mapOptions = {
-      center: new google.maps.LatLng(35.068016, 38.997014),
-      zoom: 7
-    };
-
-    shelter_map = new google.maps.Map(document.getElementById("shelter-map"), mapOptions);
-
-
-    // activate search
-    $("#btn-search-shelters").click(function(){
-
-		var q = $("#query-search-shelters").val();    	
+function doShelterSearch(q) {
 
 		//TODO: clear map
 		$(shelter_map_markers).each(function(){
@@ -113,10 +97,37 @@ $(function(){
 			}
 
 		});
+}
 
+function initShelterSearchMap() {
+    
+
+	if (shelter_map != false) return;
+
+	var mapOptions = {
+      center: new google.maps.LatLng(35.068016, 38.997014),
+      zoom: 7
+    };
+
+    shelter_map = new google.maps.Map(document.getElementById("shelter-map"), mapOptions);
+
+
+    // activate search
+    $("#btn-search-shelters").click(function(){
+
+		var q = $("#query-search-shelters").val();    	
+
+		doShelterSearch(q);
 
     	return false;
     })
+
+}
+
+
+
+$(function(){
+
 
 
 
