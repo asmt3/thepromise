@@ -160,6 +160,21 @@ class InvestigationsController extends AppController {
 		$this->set(compact('investigations', 'max_id'));
 	}
 
+
+	public function poll_for_shelter($since_id) {
+
+		$this->layout = 'ajax';
+
+		$investigations = $this->Investigation->find('all', array('conditions' => array(
+			'Investigation.status' => array('referred'),
+			'Investigation.id >' => $since_id
+		)));
+
+		$max_id = $this->Investigation->getMaxId();
+
+		$this->set(compact('investigations', 'max_id'));
+	}
+
 	
 	public function refer($shelter_id, $investigation_id) {
 

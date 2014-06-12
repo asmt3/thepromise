@@ -723,3 +723,14 @@ Stack Trace:
 #11 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(InvestigationsController), Object(CakeRequest))
 #12 /Users/asmt3/Sites/opensource/shelterline/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #13 {main}
+2014-06-12 11:07:00 Error: [MissingActionException] Action InvestigationsController::poll_for_shelter() could not be found.
+Exception Attributes: array (
+  'controller' => 'InvestigationsController',
+  'action' => 'poll_for_shelter',
+)
+Request URL: /investigations/poll_for_shelter/4
+Stack Trace:
+#0 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/asmt3/Sites/opensource/shelterline/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(InvestigationsController), Object(CakeRequest))
+#2 /Users/asmt3/Sites/opensource/shelterline/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}

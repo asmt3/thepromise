@@ -1,3 +1,5 @@
+<?php echo $this->Html->script('investigations/shelter', array('inline' => false)); ?>
+
 <script type="text/javascript">
 var max_id = <?php echo $max_id;?>;
 </script>
