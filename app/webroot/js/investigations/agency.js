@@ -27,7 +27,7 @@ function poll() {
 			tr_html += '<td>' + this.Investigation.status + '</td>';
 			tr_html += '<td>' + this.Investigation.created + '</td>';
 			tr_html += '<td class="actions">';
-			tr_html += '<a href="/investigations/view/' + + '">View</a>';
+			tr_html += '<a href="/investigations/view/' + this.Investigation.id + '">View</a>';
 			tr_html += '</td>';
 			tr_html += '</tr>';
 

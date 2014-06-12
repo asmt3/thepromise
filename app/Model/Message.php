@@ -40,7 +40,9 @@ class Message extends AppModel {
 
 			$this->Investigation->create();
 			$this->Investigation->save(array(
-				'agency_id' => $agency_id
+				'agency_id' => $agency_id,
+				'phone' => $from,
+				'name' => 'unknown',
 			));
 			$investigation_id = $this->Investigation->id;
 			
