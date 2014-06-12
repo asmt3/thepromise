@@ -1,3 +1,8 @@
+<script type="text/javascript">
+var max_id = <?php echo $max_id;?>;
+</script>
+
+
 <div class="investigations index">
 	<h2><?php echo __('Cases'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
@@ -19,7 +24,7 @@
 		<td><?php echo h($investigation['Investigation']['status']); ?>&nbsp;</td>
 		<td><?php echo $this->Time->nice($investigation['Investigation']['created']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $investigation['Investigation']['id'])); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view_for_shelter', $investigation['Investigation']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

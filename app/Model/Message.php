@@ -27,7 +27,7 @@ class Message extends AppModel {
 			'Message.from' => $from
 		)));
 
-		if ($previousMessage) {
+		if (false && $previousMessage) {
 			$investigation_id = $previousMessage['Message']['investigation_id'];
 			$agency_id = $previousMessage['Message']['agency_id'];
 		} else {
