@@ -23,7 +23,7 @@ function poll() {
 			tr_html += '<td>' + this.Investigation.id + '&nbsp;</td>';
 			tr_html += '<td>' + this.Investigation.phone + '&nbsp;</td>';
 			tr_html += '<td>' + this.Investigation.name + '</td>';
-			tr_html += '<td>' + this.Investigation.Message[0].content + '</td>';
+			tr_html += '<td>' + this.Message[0].content + '</td>';
 			tr_html += '<td>' + this.Investigation.status + '</td>';
 			tr_html += '<td>' + this.Investigation.created + '</td>';
 			tr_html += '<td class="actions">';
