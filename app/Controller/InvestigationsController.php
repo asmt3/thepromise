@@ -176,7 +176,8 @@ class InvestigationsController extends AppController {
 
 			$note = $this->request->data('Investigation.note');
 
-			$investigation = $this->Investigation->refer($shelter_id, $investigation_id);
+			//$investigation = $this->Investigation->refer($shelter_id, $investigation_id);
+			$investigation = $this->Investigation->refer(1, $investigation_id);
 
 			$this->loadModel('Shelter');
 			$shelter = $this->Shelter->read(null, $shelter_id);
